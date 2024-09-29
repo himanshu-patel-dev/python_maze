@@ -1,7 +1,7 @@
 # python_maze
 Maze Runner....;)
 
-Problem:
+### Problem:
 
 You are given a 2D array like below
 
@@ -18,16 +18,16 @@ maze = [
 - "1" represents a wall.
 - "0" represents an open space you can move through.
 
-Task:
+### Task:
 You need to write a function that finds the shortest path from the start (S) to the end (E).
 And take care of edge cases
 
-Output:
+### Output:
 ```python
 output = [(0, 0), (0, 1), (1, 1), (2, 1), (2, 2), (2, 3), (3, 3)]
 ```
 
-Test:
+### Test:
 You can add more test case in `test.py` file to test your code.
 ```bash
 $ python3 test.py 
