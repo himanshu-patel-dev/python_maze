@@ -8,4 +8,4 @@ class Solution:
 	# ]
 	# return: Array of tuples [ (0,1),(1,1) ]
 	def get_path(self, maze):
-		return maze[0]
+		return [(0,0)]

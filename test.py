@@ -1,13 +1,20 @@
 from solution import Solution
+import inspect
 
 class Test:
 	def __init__(self):
 		self.sol_obj = Solution()
 
-	def main(self):
-		self.test1()
+	def run_all_tests(self):
+		# get all methods on instance
+		methods = inspect.getmembers(self, predicate=inspect.ismethod)
+		# filter out those methods which have 'test_' in them
+		test_methods = [method for name, method in methods if name.startswith('test_')]
+		# call all othse 'test_' methods
+		for i, test in enumerate(test_methods):
+				test(i+1)
 
-	def test_runner(
+	def tests_evaluator(
 		self,
 		test_num,
 		maze,
@@ -23,7 +30,7 @@ class Test:
 			f"Test {test_num} output: {output}"
 		)
 
-	def test1(self):
+	def test_1(self, test_number):
 		maze = [
 			['S', '0', '0'],
 			['0', '1', '0'],
@@ -32,9 +39,16 @@ class Test:
 		expected_path = [
 			(0,0),(0,1),(0,2),(1,2),(2,2)
 		]
-		self.test_runner(
-			1, maze, expected_path
-		)
+		self.tests_evaluator(test_number, maze, expected_path)
+
+	def test_2(self, test_number):
+		maze = [
+			['E'],
+		]
+		expected_path = [
+			(0,0)
+		]
+		self.tests_evaluator(test_number, maze, expected_path)
 
 # run all test cases
-Test().main()
+Test().run_all_tests()

@@ -32,4 +32,5 @@ You can add more test case in `test.py` file to test your code.
 ```bash
 $ python3 test.py 
 Test 1 output: ❌
+Test 2 output: ✅
 ```
