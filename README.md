@@ -26,3 +26,10 @@ Output:
 ```python
 output = [(0, 0), (0, 1), (1, 1), (2, 1), (2, 2), (2, 3), (3, 3)]
 ```
+
+Test:
+You can add more test case in `test.py` file to test your code.
+```bash
+$ python3 test.py 
+Test 1 output: ❌
+```
