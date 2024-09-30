@@ -9,24 +9,26 @@ class Solution:
 	# start_position: (0,0)
 	# return: Array of tuples [ (0,1),(1,1) ]
 	def get_path(self, maze, start_position):
-		r = self.get_path_util(maze, start_position)
-		print(r, start_position)
-		return r
-
-	def get_path_util(self, maze, position):
-		x,y = position[0], position[1]
-		out_of_boundary = ( x >= len(maze) or y >= len(maze[1]) )
-		if out_of_boundary:
+		if not maze:
 			return []
-		hitting_wall = (maze[x][y] == '1')
-		if hitting_wall:
-			return [] 
-		reached_end = (maze[x][y] == 'E')
-		if reached_end:
+		row, col = len(maze), len(maze[0])
+		visited = [[False for _ in range(col)] for _ in range(row)]
+		return self.get_path_util(maze, start_position, visited)
+
+	def get_path_util(self, maze, position, visited):
+		x,y = position[0], position[1]
+		if ( x == len(maze) or y == len(maze[0]) or x < 0 or y < 0 ):
+			return []
+		if (maze[x][y] == '1' or visited[x][y]):
+			return []
+		if (maze[x][y] == 'E'):
 			return [(x,y)]
 		final_path = []
+		visited[x][y] = True
 		for dx, dy in  [(0,1),(0,-1),(1,0),(-1,0)]:
-			path = self.get_path_util(maze, (x+dx, y+dy))
-			if len(final_path) == 0 or len(path) < len(final_path):
-				final_path = path
+			path = self.get_path_util(maze, (x+dx, y+dy), visited)
+			final_path = path
+		visited[x][y] = False
+		if final_path:
+			return [(x,y)] + final_path
 		return final_path
