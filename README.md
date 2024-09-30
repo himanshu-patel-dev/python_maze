@@ -20,7 +20,6 @@ maze = [
 
 ### Task:
 You need to write a function that finds the shortest path from the start (S) to the end (E).
-And take care of edge cases
 
 ### Output:
 ```python
@@ -34,3 +33,4 @@ $ python3 test.py
 Test 1 output: ❌
 Test 2 output: ✅
 ```
+Goal is to make all test cases pass.
