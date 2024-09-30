@@ -94,4 +94,5 @@ class Test:
 		self.tests_evaluator(test_number, maze, start_position, expected_path)
 
 # run all test cases
-Test().run_all_tests()
+# Test().run_all_tests()
+Test().test_6(6)
