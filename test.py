@@ -93,5 +93,20 @@ class Test:
 		]
 		self.tests_evaluator(test_number, maze, start_position, expected_path)
 
+	def test_7(self, test_number):
+		maze = [
+			['0', '0', '0', '0', '0', '0'],
+			['0', '0', '0', '0', '0', '0'],
+			['0', '0', 'E', '1', '0', '0'],
+			['0', '1', '1', '1', '0', '0'],
+			['0', '0', '0', '0', '0', '0'],
+			['0', '0', '0', '0', '0', 'S']
+		]
+		start_position = (5,5)
+		expected_path = [
+			[(5, 5), (5, 4), (4, 4), (3, 4), (2, 4), (1, 4), (1, 3), (1, 2), (2, 2)]
+		]
+		self.tests_evaluator(test_number, maze, start_position, expected_path)
+
 # run all test cases
 Test().run_all_tests()
